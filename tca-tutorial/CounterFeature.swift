@@ -13,25 +13,57 @@ struct CounterFeature {
     @ObservableState
     struct State {
         var count = 0
+        var fact: String?
+        var isLoading = false
     }
     
     enum Action {
         case decrementButtonTapped
+        case factButtonTapped
+        case factResponse(String)
         case incrementButtonTapped
     }
+    
+    let decoder = JSONDecoder()
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .decrementButtonTapped:
                 state.count -= 1
+                state.fact = nil
                 return .none
+                
+            case .factButtonTapped:
+                state.fact = nil
+                state.isLoading = true
+                return .run { [count = state.count] send in
+                    guard let url = URL(string: "https://fakestoreapi.com/products/\(count)") else { return }
+                    
+                    do {
+                        let (data, _) = try await URLSession.shared.data(from: url)
+                        let fact = try decoder.decode(Product.self, from: data)
+                        await send(.factResponse(fact.title))
+                    } catch {
+                    }
+                }
+                
+            case let .factResponse(fact):
+                state.fact = fact
+                state.isLoading = false
+                return .none
+                
             case .incrementButtonTapped:
                 state.count += 1
+                state.fact = nil
                 return .none
             }
         }
     }
+}
+
+struct Product: Decodable {
+    let title: String
 }
 
 struct CounterView: View {
@@ -53,6 +85,21 @@ struct CounterView: View {
                 StyledButton(label: "+") {
                     store.send(.incrementButtonTapped)
                 }
+            }
+
+            if store.count > 0 {
+                StyledButton(label: "Fact") {
+                    store.send(.factButtonTapped)
+                }
+            }
+            
+            if store.isLoading {
+                ProgressView()
+            } else if let fact = store.fact {
+                Text(fact)
+                    .font(.largeTitle)
+                    .multilineTextAlignment(.center)
+                    .padding()
             }
         }
     }
