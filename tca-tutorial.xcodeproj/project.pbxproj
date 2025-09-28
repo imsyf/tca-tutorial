@@ -10,14 +10,30 @@
 		9DBA688B2E877685003F529D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 9DBA688A2E877685003F529D /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9DD1431C2E89599F00172DDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DA9F4432E87745C00E8334E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DA9F44A2E87745C00E8334E;
+			remoteInfo = "tca-tutorial";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		9DA9F44B2E87745C00E8334E /* tca-tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tca-tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DD143182E89599F00172DDD /* CounterFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CounterFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9DA9F44D2E87745C00E8334E /* tca-tutorial */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "tca-tutorial";
+			sourceTree = "<group>";
+		};
+		9DD143192E89599F00172DDD /* CounterFeatureTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CounterFeatureTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -31,6 +47,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9DD143152E89599F00172DDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				9DA9F44D2E87745C00E8334E /* tca-tutorial */,
+				9DD143192E89599F00172DDD /* CounterFeatureTests */,
 				9DA9F44C2E87745C00E8334E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				9DA9F44B2E87745C00E8334E /* tca-tutorial.app */,
+				9DD143182E89599F00172DDD /* CounterFeatureTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +101,29 @@
 			productReference = 9DA9F44B2E87745C00E8334E /* tca-tutorial.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9DD143172E89599F00172DDD /* CounterFeatureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DD1431E2E89599F00172DDD /* Build configuration list for PBXNativeTarget "CounterFeatureTests" */;
+			buildPhases = (
+				9DD143142E89599F00172DDD /* Sources */,
+				9DD143152E89599F00172DDD /* Frameworks */,
+				9DD143162E89599F00172DDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DD1431D2E89599F00172DDD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9DD143192E89599F00172DDD /* CounterFeatureTests */,
+			);
+			name = CounterFeatureTests;
+			packageProductDependencies = (
+			);
+			productName = CounterFeatureTests;
+			productReference = 9DD143182E89599F00172DDD /* CounterFeatureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -88,6 +136,10 @@
 				TargetAttributes = {
 					9DA9F44A2E87745C00E8334E = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					9DD143172E89599F00172DDD = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 9DA9F44A2E87745C00E8334E;
 					};
 				};
 			};
@@ -109,12 +161,20 @@
 			projectRoot = "";
 			targets = (
 				9DA9F44A2E87745C00E8334E /* tca-tutorial */,
+				9DD143172E89599F00172DDD /* CounterFeatureTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9DA9F4492E87745C00E8334E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DD143162E89599F00172DDD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,7 +191,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9DD143142E89599F00172DDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DD1431D2E89599F00172DDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DA9F44A2E87745C00E8334E /* tca-tutorial */;
+			targetProxy = 9DD1431C2E89599F00172DDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9DA9F4572E87745E00E8334E /* Debug */ = {
@@ -311,6 +386,40 @@
 			};
 			name = Release;
 		};
+		9DD1431F2E89599F00172DDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = im.syf.CounterFeatureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tca-tutorial.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tca-tutorial";
+			};
+			name = Debug;
+		};
+		9DD143202E89599F00172DDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = im.syf.CounterFeatureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tca-tutorial.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tca-tutorial";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -328,6 +437,15 @@
 			buildConfigurations = (
 				9DA9F45A2E87745E00E8334E /* Debug */,
 				9DA9F45B2E87745E00E8334E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DD1431E2E89599F00172DDD /* Build configuration list for PBXNativeTarget "CounterFeatureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DD1431F2E89599F00172DDD /* Debug */,
+				9DD143202E89599F00172DDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
