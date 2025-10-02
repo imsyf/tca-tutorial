@@ -25,9 +25,22 @@
 		9DD143182E89599F00172DDD /* CounterFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CounterFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9DC08C242E8ACD5200C03620 /* Exceptions for "tca-tutorial" folder in "CounterFeatureTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NumberFactClient.swift,
+			);
+			target = 9DD143172E89599F00172DDD /* CounterFeatureTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9DA9F44D2E87745C00E8334E /* tca-tutorial */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9DC08C242E8ACD5200C03620 /* Exceptions for "tca-tutorial" folder in "CounterFeatureTests" target */,
+			);
 			path = "tca-tutorial";
 			sourceTree = "<group>";
 		};

@@ -31,8 +31,8 @@ struct CounterFeature {
         case timer
     }
     
-    let decoder = JSONDecoder()
     @Dependency(\.continuousClock) var clock
+    @Dependency(\.numberFact) var numberFact
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -46,14 +46,7 @@ struct CounterFeature {
                 state.fact = nil
                 state.isLoading = true
                 return .run { [count = state.count] send in
-                    guard let url = URL(string: "https://fakestoreapi.com/products/\(count)") else { return }
-                    
-                    do {
-                        let (data, _) = try await URLSession.shared.data(from: url)
-                        let fact = try decoder.decode(Product.self, from: data)
-                        await send(.factResponse(fact.title))
-                    } catch {
-                    }
+                    try await send(.factResponse(self.numberFact.fetch(count)))
                 }
                 
             case let .factResponse(fact):
@@ -85,10 +78,6 @@ struct CounterFeature {
             }
         }
     }
-}
-
-struct Product: Decodable {
-    let title: String
 }
 
 struct CounterView: View {
