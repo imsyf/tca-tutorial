@@ -10,14 +10,22 @@ import SwiftUI
 
 @main
 struct tca_tutorialApp: App {
-    static let store = Store(initialState: AppFeature.State()) {
-        AppFeature()
+    static let store = Store(
+        initialState: ContactsFeature.State(
+            contacts: [
+                Contact(id: UUID(), name: "Contact 1"),
+                Contact(id: UUID(), name: "Contact 2"),
+                Contact(id: UUID(), name: "Contact 3"),
+            ]
+        )
+    ) {
+        ContactsFeature()
             ._printChanges()
     }
 
     var body: some Scene {
         WindowGroup {
-            AppView(store: tca_tutorialApp.store)
+            ContactsView(store: tca_tutorialApp.store)
         }
     }
 }
