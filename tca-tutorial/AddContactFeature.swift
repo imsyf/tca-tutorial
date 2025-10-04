@@ -23,22 +23,26 @@ struct AddContactFeature {
         case setName(String)
         
         enum Delegate: Equatable {
-            case cancel
             case saveContact(Contact)
         }
     }
+    
+    @Dependency(\.dismiss) var dismiss
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .cancelButtonTapped:
-                return .send(.delegae(.cancel))
+                return .run { _ in await self.dismiss() }
             
             case .delegae:
                 return .none
             
             case .saveButtonTapped:
-                return .send(.delegae(.saveContact(state.contact)))
+                return .run { [contact = state.contact] send in
+                    await send(.delegae(.saveContact(contact)))
+                    await self.dismiss()
+                }
             
             case let .setName(name):
                 state.contact.name = name
