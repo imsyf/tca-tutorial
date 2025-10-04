@@ -34,13 +34,11 @@ struct ContactsFeature {
                 state.addContact = AddContactFeature.State(contact: .init(id: UUID(), name: ""))
                 return .none
             
-            case .addContact(.presented(.cancelButtonTapped)):
+            case .addContact(.presented(.delegae(.cancel))):
                 state.addContact = nil
                 return .none
             
-            case .addContact(.presented(.saveButtonTapped)):
-                guard let contact = state.addContact?.contact
-                else { return .none }
+            case let .addContact(.presented(.delegae(.saveContact(contact)))):
                 state.contacts.append(contact)
                 state.addContact = nil
                 return .none
